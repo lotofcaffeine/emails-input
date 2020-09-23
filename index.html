@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <link rel="stylesheet" href="./assets/reset.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: 'Open Sans', sans-serif;
+        color: #fff;
+        background-color: #111;
+        line-height: 1.7;
+        font-size: 16px;
+        margin-top: 110px;
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #111;
+      }
+
+      nav {
+        padding: 1rem;
+        max-width: 750px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 2rem;
+      }
+      h2 {
+        padding: 2rem 0;
+        font-size: 1.7rem;
+        color: #838383;
+        max-width: 540px;
+        margin: 0 auto;
+      }
+
+      main {
+        width: 90%;
+        max-width: 540px;
+        margin: 0 auto;
+      }
+
+      .email-form__title {
+        margin-bottom: 24px;
+        font-weight: normal;
+        font-size: 1.25rem;
+        color: #050038;
+      }
+      .email-form {
+        margin: 0 auto;
+        box-sizing: border-box;
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+        max-width: 540px;
+        background: #f8f8f7;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+      }
+      .email-form__buttons {
+        border-radius: 0 0 8px 8px;
+        padding: 24px 50px 32px 50px;
+        background: #ffffff;
+      }
+      .email-form__buttons__button {
+        font-family: 'Open Sans', sans-serif;
+        line-height: 24px;
+        border: 0;
+        display: block;
+        width: 100%;
+        border-radius: 6px;
+        margin: 0px 16px 0px 0px;
+        padding: 8px 16px;
+        background-color: #4262ff;
+        color: #ffffff;
+        font-size: 0.875rem;
+        cursor: pointer;
+        transition: background-color 0.25s;
+        outline: 2px solid transparent;
+        cursor: pointer;
+      }
+
+      .email-form__buttons__button + .email-form__buttons__button {
+        margin-top: 10px;
+      }
+      .email-form__buttons__button:hover,
+      .email-form__buttons__button:focus {
+        background: #3f53d9;
+      }
+      .email-form__content {
+        background: #f8f8f7;
+        padding: 32px 50px 24px 50px;
+        border-radius: 8px;
+      }
+      .email-form__title {
+        margin: 0px 0px 24px 0px;
+        font-weight: normal;
+        font-size: 20px;
+      }
+
+      .valid-emails {
+        max-width: 540px;
+        margin: 0 auto;
+      }
+
+      @media screen and (min-width: 540px) {
+        h1 {
+          font-size: 3.75rem;
+        }
+        h2 {
+          font-size: 2.2rem;
+        }
+
+        .email-form__buttons__button + .email-form__buttons__button {
+          margin-top: 0;
+        }
+        .email-form__buttons__button {
+          width: auto;
+          padding: 8px 16px;
+        }
+        .email-form__buttons {
+          display: flex;
+          justify-content: flex-start;
+        }
+      }
+    </style>
+    <title>Emails Input - Use cases</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="100"
+          height="32"
+          fill="none"
+          role="logo"
+        >
+          <title>Miro Logo</title>
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M77.969 9.165c6.531 0 10.858 4.542 10.858 11.396C88.827 27.416 84.5 32 77.969 32c-6.782 0-11.317-4.584-11.317-11.439 0-6.854 4.535-11.396 11.317-11.396zm-34.86.46V31.54l-4.883-1.004V10.587l4.883-.962zm19.55-.509v5.143l-2.814.522c-2.418.464-3.972 1.721-3.972 4.504V31.54l-4.883-1.004V18.538c0-5.954 3.487-7.726 8.855-8.962l2.813-.46zm-51.885.05c1.916 0 4.266 1.07 5.59 2.99 1.33-1.748 3.553-2.895 6.281-2.933 3.434-.046 7.7 2.117 7.7 8.6V31.54l-4.883-1.004V17.822c0-2.174-1.572-3.722-3.889-3.722-2.317 0-3.89 1.548-3.89 3.722V31.54l-4.881-1.004V17.822c0-2.174-1.572-3.722-3.89-3.722-2.358 0-3.93 1.548-3.93 3.722V31.54L.1 30.536V10.587l4.882-.962v2.258c1.365-1.672 3.434-2.718 5.792-2.718zM77.97 13.79c-3.787 0-6.325 2.691-6.325 6.77 0 4.08 2.538 6.813 6.325 6.813 3.535 0 5.865-2.733 5.865-6.813 0-4.079-2.33-6.77-5.865-6.77zM40.77 0c1.777 0 2.953 1.235 2.953 3.1 0 1.864-1.176 3.11-2.953 3.11-1.844 0-3.078-1.246-3.078-3.11 0-1.865 1.234-3.1 3.078-3.1z"
+            fill="#fff"
+          />
+        </svg>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Use cases</h1>
+      <section>
+        <h2>EmailsEditor inside a form</h2>
+        <form class="email-form" aria-label="Add emails">
+          <div class="email-form__content">
+            <h3 class="email-form__title">
+              <label for="emails-editor-one">
+                Share <strong>Board name</strong> with others
+              </label>
+            </h3>
+            <div class="email-form__input" id="emails-editor-case-one"></div>
+          </div>
+
+          <div class="email-form__buttons">
+            <button
+              class="email-form__buttons__button"
+              onclick="addEmailCaseOne()"
+              type="button"
+            >
+              Add email
+            </button>
+            <button
+              class="email-form__buttons__button"
+              onclick="getEmailsCaseOne()"
+              type="button"
+            >
+              Get emails count
+            </button>
+            <button class="email-form__buttons__button" type="submit">
+              Submit
+            </button>
+          </div>
+        </form>
+        <div class="valid-emails">
+          <h3 id="submited-emails-title" style="display: none;">
+            Valid Emails:
+          </h3>
+
+          <ul id="submited-emails"></ul>
+        </div>
+      </section>
+      <section>
+        <h2>EmailsEditor inside a div</h2>
+        <div class="email-form" role="group">
+          <div class="email-form__content">
+            <h3 class="email-form__title">
+              <label for="emails-editor-two">
+                Share <strong>Board name</strong> with others
+              </label>
+            </h3>
+
+            <div class="email-form__input" id="emails-editor-case-two"></div>
+          </div>
+
+          <div class="email-form__buttons">
+            <button
+              class="email-form__buttons__button"
+              onclick="addEmailCaseTwo()"
+              type="button"
+            >
+              Add email
+            </button>
+            <button
+              class="email-form__buttons__button"
+              onclick="getEmailsCaseTwo()"
+              type="button"
+            >
+              Get emails count
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="./dist/emails-input.js"></script>
+    <script type="application/javascript">
+      var emailList = getParam('emails-input-case-one', window.location.href);
+      if (emailList && emailList.length > 0) {
+        var title = document.getElementById('submited-emails-title');
+        title.setAttribute('style', 'display: block');
+        var ul = document.getElementById('submited-emails');
+        var emails = decodeURIComponent(emailList).split(',');
+        for (let i = 0; i < emails.length; i++) {
+          var email = emails[i];
+          var li = document.createElement('li');
+          li.innerText = email;
+          ul.appendChild(li);
+        }
+      }
+
+      var inputContainerNodeOne = document.getElementById(
+        'emails-editor-case-one'
+      );
+      var emailsEditorOne = EmailsInput(inputContainerNodeOne, {
+        id: 'emails-editor-one',
+        name: 'emails-input-case-one',
+      });
+      var inputContainerNodeTwo = document.getElementById(
+        'emails-editor-case-two'
+      );
+
+      var emailsEditorTwo = EmailsInput(inputContainerNodeTwo, {
+        id: 'emails-editor-two',
+      });
+
+      function getParam(name, search) {
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(search);
+        if (results == null) {
+          return null;
+        } else {
+          return decodeURI(results[1]) || 0;
+        }
+      }
+
+      function addEmailCaseOne() {
+        addEmail(emailsEditorOne);
+      }
+      function getEmailsCaseOne() {
+        getEmailsCount(emailsEditorOne);
+      }
+
+      function addEmailCaseTwo() {
+        addEmail(emailsEditorTwo);
+      }
+      function getEmailsCaseTwo() {
+        getEmailsCount(emailsEditorTwo);
+      }
+
+      function randomEmail() {
+        var names = [
+          'mary',
+          'patricia',
+          'jennifer',
+          'linda',
+          'elizabeth',
+          'barbara',
+          'susan',
+          'jessica',
+          'sarah',
+          'raiana',
+        ];
+        var domains = ['com', 'com.br', 'io', 'info'];
+        var nameIndex = Math.floor(names.length * Math.random());
+        var domainIndex = Math.floor(domains.length * Math.random());
+        strEmail = names[nameIndex] + '@miro.' + domains[domainIndex];
+        return strEmail;
+      }
+
+      function addEmail(node) {
+        node.addBlock(randomEmail());
+      }
+      function getEmailsCount(node) {
+        alert('Email count: ' + node.getEmails().length);
+      }
+    </script>
+  </body>
+</html>

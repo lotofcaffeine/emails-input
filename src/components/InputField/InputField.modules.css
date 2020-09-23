@@ -1,0 +1,27 @@
+.emails-editor__input-field {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  outline: 0.5px solid transparent;
+  font-size: 14px;
+  line-height: 24px;
+  flex-basis: 5%;
+  flex-grow: 1;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.emails-editor__input-field::placeholder {
+  color: #c3c2cf;
+}
+
+.emails-editor__input-field::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+.emails-editor__input-field::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}

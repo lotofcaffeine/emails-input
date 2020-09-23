@@ -1,0 +1,17 @@
+.emails-editor__delete-button {
+  display: inline-block;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  transform: scale(1);
+  transition: transform 250ms;
+  cursor: pointer;
+}
+
+.emails-editor__delete-button:focus {
+  outline-style: dotted;
+}
+.emails-editor__delete-button:hover {
+  transform: scale(1.025);
+  outline: 0.5px solid transparent;
+}

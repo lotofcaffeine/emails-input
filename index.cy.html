@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .change-color {
+        border-radius: 300px;
+      }
+    </style>
+    <title>Emails Input - Usage Example</title>
+  </head>
+  <body>
+    <div>
+      <div>
+        <div id="emails-input"></div>
+      </div>
+    <script src="./emails-input.js"></script>
+    <script type="application/javascript">
+      var inputContainerNode = document.querySelector('#emails-input');
+      var emailsInput = EmailsInput(inputContainerNode);
+      var params = new URLSearchParams(window.location.search);
+      if(params.has('emails')) {
+        var emails = params.get('emails').split(',');
+        for (let i = 0; i < emails.length; i++) {
+          const email = emails[i];
+          emailsInput.addBlock(email);
+        }
+      };
+    </script>
+  </body>
+</html>

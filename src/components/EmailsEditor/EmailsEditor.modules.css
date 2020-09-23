@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+.emails-editor > * {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  margin-left: 8px;
+  margin-top: 4px;
+}
+
+.emails-editor {
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border: 1px solid #c3c2cf;
+  width: 100%;
+  overflow-y: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: start;
+  min-height: 96px;
+  height: 96px;
+  border-radius: 4px;
+}
