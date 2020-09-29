@@ -5,18 +5,14 @@ export interface DeleteButtonProps {
   onClick: (event: MouseEvent) => any;
 }
 
-export interface DeleteButton extends HTMLButtonElement {
-  clean: () => void;
-}
+export interface DeleteButton extends HTMLButtonElement {}
 
 export interface EmailBlockProps {
   block: Block;
   onDelete?: (block: Block) => void;
 }
 
-export interface EmailBlock extends HTMLSpanElement {
-  clean: () => void;
-}
+export interface EmailBlock extends HTMLSpanElement {}
 
 export interface InputFieldProps {
   id?: string;

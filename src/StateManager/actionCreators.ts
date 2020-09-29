@@ -1,4 +1,3 @@
-import { Block } from '../model';
 import { Action, ActionType } from './types';
 
 export const appendBlock = (text: string): Action => {
@@ -8,10 +7,10 @@ export const appendBlock = (text: string): Action => {
   };
 };
 
-export const deleteBlock = (block: Block): Action => {
+export const deleteBlock = (tagId: string): Action => {
   return {
     type: ActionType.DeleteBlock,
-    payload: { block },
+    payload: { tagId },
   };
 };
 

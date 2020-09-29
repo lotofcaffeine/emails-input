@@ -29,8 +29,5 @@ export const emailBlockBuilder = ({
     },
   });
   element.appendChild(deleteButton);
-  element.clean = () => {
-    deleteButton.clean();
-  };
   return element;
 };

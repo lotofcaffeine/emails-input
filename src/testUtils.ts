@@ -16,10 +16,10 @@ export const createAppendOrChangeInputAction = (
   };
 };
 
-export const createDeleteBlockAction = (block: Block): Action => {
+export const createDeleteBlockAction = (tagId: string): Action => {
   return {
     type: ActionType.DeleteBlock,
-    payload: { block },
+    payload: { tagId },
   };
 };
 

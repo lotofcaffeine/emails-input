@@ -52,7 +52,7 @@ export const emailsEditorBuilder = ({
         if (key === 'Backspace') {
           if (currentText.length === 0 && blocks.length > 0) {
             const block = blocks[blocks.length - 1];
-            store.dispatch(deleteBlock(block));
+            store.dispatch(deleteBlock(block.id));
           }
         } else if (key === 'Enter') {
           const sanitizedText = text.trim();
@@ -85,9 +85,22 @@ export const emailsEditorBuilder = ({
     },
     true
   );
-  emailsEditor.addEventListener('click', () => {
+
+  const clickListener = (event: MouseEvent) => {
+    const button = event?.target as HTMLElement;
+    if (button.parentElement) {
+      const span = button.parentElement;
+      if (span.getAttribute('data-tag-id')) {
+        const tagId = span.getAttribute('data-tag-id');
+        if (tagId) {
+          store.dispatch(deleteBlock(tagId));
+        }
+      }
+    }
     inputField.focus();
-  });
+  };
+  emailsEditor.addEventListener('click', clickListener);
+
   const inputField = createInputField(store);
   emailsEditor.appendChild(inputField);
 
@@ -121,7 +134,6 @@ export const emailsEditorBuilder = ({
     );
     if (emailBlock) {
       emailsEditor.removeChild(emailBlock);
-      emailBlock.clean();
       hiddenInput.setBlocks(blocks);
     }
     inputField.focus();

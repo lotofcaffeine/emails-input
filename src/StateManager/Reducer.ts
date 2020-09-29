@@ -5,8 +5,8 @@ import { validate } from '../utils';
 export const reducer: Reducer = (state, action) => {
   switch (action.type) {
     case ActionType.DeleteBlock: {
-      state.blocks = state.blocks.filter(e => e !== action.payload.block);
-      state.lastBlockIdRemoved = action.payload.block.id;
+      state.blocks = state.blocks.filter(e => e.id !== action.payload.tagId);
+      state.lastBlockIdRemoved = action.payload.tagId;
       return state;
     }
     case ActionType.AppendBlock: {

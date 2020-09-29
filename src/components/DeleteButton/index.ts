@@ -5,6 +5,7 @@ const createClose = () => {
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   svg.setAttribute('width', '8');
   svg.setAttribute('height', '8');
+  svg.setAttribute('pointer-events', 'none');
   const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
   svg.setAttribute('viewBox', '0 0 8 8');
   path.setAttribute('fill-rule', 'evenodd');
@@ -20,16 +21,11 @@ const createClose = () => {
 
 export const deleteButtonBuilder = ({
   tagId,
-  onClick = () => {},
 }: DeleteButtonProps): DeleteButton => {
   let info = createClose();
   const element = document.createElement('button') as DeleteButton;
   element.dataset['tagId'] = tagId;
   element.appendChild(info);
   element.classList.add(style['emails-editor__delete-button']);
-  element.addEventListener('click', onClick, { once: true });
-  element.clean = () => {
-    element.removeEventListener('click', onClick);
-  };
   return element;
 };

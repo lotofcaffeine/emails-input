@@ -53,7 +53,7 @@ describe('Reducer', () => {
     const emailc = 'c@miro.com';
     const blocks = [emaila, emailb, emailc].map(s => createBlock(s));
     const state = createState('', blocks);
-    const action = createDeleteBlockAction(blocks[1]);
+    const action = createDeleteBlockAction(blocks[1].id);
     const newState = reducer(state, action);
     expect(newState.blocks).toHaveLength(2);
     expect(newState.blocks[0].text).toEqual(emaila);

@@ -1,5 +1,4 @@
 import { Action, ActionType, appendBlock, changeInput, deleteBlock } from '.';
-import { createBlock } from '../testUtils';
 describe('appendBlock', () => {
   it('should return a appendBlock action', () => {
     const text = 'blah@miro.com';
@@ -12,12 +11,12 @@ describe('appendBlock', () => {
 });
 describe('deleteBlock', () => {
   it('should return a deleteBlock action', () => {
-    const block = createBlock();
+    const tagId = 'tagId';
     const expectedAction: Action = {
       type: ActionType.DeleteBlock,
-      payload: { block },
+      payload: { tagId },
     };
-    expect(deleteBlock(block)).toEqual(expectedAction);
+    expect(deleteBlock(tagId)).toEqual(expectedAction);
   });
 });
 describe('changeInput', () => {
